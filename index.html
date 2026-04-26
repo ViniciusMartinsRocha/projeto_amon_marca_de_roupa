@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>projeto_mon_0.3</title>
+
+    <style>
+        html {
+            /*Ao usar os botões, ele ir suavemente pra área com isso*/
+            scroll-behavior: smooth; 
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+        }
+
+        /* Menu */
+        header {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #444;
+            position: sticky;
+            top: 0;
+            background: black;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #aaa;
+        }
+
+        /*Estilização da imagem */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+        }
+
+        .image-box {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* ESTILIZAÇÃO RELÓGIO NEON PRA DIFERENCIAR */
+        #relogio {
+            margin-top: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: #00ffff;
+            text-shadow:
+                0 0 5px #00ffff,
+                0 0 10px #00ffff,
+                0 0 20px #00ffff,
+                0 0 40px #00ffff;
+        }
+
+        /* ESTILIZAÇÃO DATA PRA FICAR BONITO */
+        #data {
+            font-size: 18px;
+            margin-left: 15px;
+            color: #ff00ff;
+            text-shadow:
+                0 0 5px #ff00ff,
+                0 0 10px #ff00ff,
+                0 0 20px #ff00ff;
+        }
+
+        .tempo {
+            display: flex;
+        }
+
+        /* SEÇÕES PRA SEPARAR AS INFORMAÇÕES DE CADA BOTÃO */
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="#novidades">Novidades</a>
+        <a href="#shop">Shop</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+ /*PRIMEIRA PARTE: TOPO*/
+<div class="container">
+    <div class="image-box">
+        <img src="farol_velho.jpg" alt="Sua imagem aqui">
+    </div>
+
+    <div class="tempo">
+        <div id="relogio">--:--:--</div>
+        <div id="data">--/--/----</div>
+    </div>
+</div>
+
+/*SEÇÕES SEPARADAS, AINDA NÃO UTILIZADAS, SÓ SEPARADINHAS*/
+<section id="novidades">Novidades</section>
+<section id="shop">Shop</section>
+<section id="sobre">Sobre</section>
+<section id="contato">Contato</section>
+
+<script>
+function atualizarTempo() {
+    const agora = new Date();
+
+    const opcoesHora = {
+        timeZone: "America/Sao_Paulo",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+    };
+
+    const opcoesData = {
+        timeZone: "America/Sao_Paulo",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+    };
+
+    document.getElementById("relogio").textContent =
+        agora.toLocaleTimeString("pt-BR", opcoesHora);
+
+    document.getElementById("data").textContent =
+        agora.toLocaleDateString("pt-BR", opcoesData);
+}
+
+atualizarTempo();
+setInterval(atualizarTempo, 1000);
+</script>
+
+</body>
+</html>
