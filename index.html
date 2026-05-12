@@ -6,7 +6,7 @@
 
     <style>
         html {
-            /*Ao usar os botões, ele ir suavemente pra área com isso*/
+            /* Ao usar os botões, ele vai suavemente pra área */
             scroll-behavior: smooth; 
         }
 
@@ -17,11 +17,11 @@
             color: white;
         }
 
-        /* Menu */
+        /* MENU */
         header {
             display: flex;
-            justify-content: center;
-            padding: 20px 0;
+            justify-content: flex-start; /* 👈 joga pra esquerda */
+            padding: 20px;
             border-bottom: 1px solid #444;
             position: sticky;
             top: 0;
@@ -31,7 +31,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 20px;
+            margin-right: 30px;
             font-size: 18px;
             transition: 0.3s;
         }
@@ -40,7 +40,7 @@
             color: #aaa;
         }
 
-        /*Estilização da imagem */
+        /* ESTILIZAÇÃO DA IMAGEM */
         .container {
             display: flex;
             flex-direction: column;
@@ -61,13 +61,14 @@
             max-height: 100%;
         }
 
-        /* ESTILIZAÇÃO RELÓGIO NEON PRA DIFERENCIAR */
+        /* RELÓGIO NEON */
         #relogio {
             margin-top: 20px;
             font-size: 32px;
             font-weight: bold;
             letter-spacing: 3px;
             color: #00ffff;
+
             text-shadow:
                 0 0 5px #00ffff,
                 0 0 10px #00ffff,
@@ -75,11 +76,12 @@
                 0 0 40px #00ffff;
         }
 
-        /* ESTILIZAÇÃO DATA PRA FICAR BONITO */
+        /* DATA */
         #data {
             font-size: 18px;
             margin-left: 15px;
             color: #ff00ff;
+
             text-shadow:
                 0 0 5px #ff00ff,
                 0 0 10px #ff00ff,
@@ -90,7 +92,7 @@
             display: flex;
         }
 
-        /* SEÇÕES PRA SEPARAR AS INFORMAÇÕES DE CADA BOTÃO */
+        /* SEÇÕES */
         section {
             height: 100vh;
             display: flex;
@@ -108,12 +110,10 @@
     <nav>
         <a href="#novidades">Novidades</a>
         <a href="#shop">Shop</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
     </nav>
 </header>
 
- /*PRIMEIRA PARTE: TOPO*/
+<!-- TOPO -->
 <div class="container">
     <div class="image-box">
         <img src="farol_velho.jpg" alt="Sua imagem aqui">
@@ -125,11 +125,9 @@
     </div>
 </div>
 
-/*SEÇÕES SEPARADAS, AINDA NÃO UTILIZADAS, SÓ SEPARADINHAS*/
+<!-- SEÇÕES -->
 <section id="novidades">Novidades</section>
 <section id="shop">Shop</section>
-<section id="sobre">Sobre</section>
-<section id="contato">Contato</section>
 
 <script>
 function atualizarTempo() {
