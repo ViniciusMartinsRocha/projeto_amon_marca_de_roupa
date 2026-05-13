@@ -5,9 +5,9 @@
     <title>projeto_mon_0.3</title>
 
     <style>
+
         html {
-            /* Ao usar os botões, ele vai suavemente pra área */
-            scroll-behavior: smooth; 
+            scroll-behavior: smooth;
         }
 
         body {
@@ -17,145 +17,367 @@
             color: white;
         }
 
-        /* MENU */
+        /* HEADER */
+
         header {
+
             display: flex;
-            justify-content: flex-start; /* 👈 joga pra esquerda */
-            padding: 20px;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 40px;
+
             border-bottom: 1px solid #444;
+
             position: sticky;
             top: 0;
-            background: black;
+
+            background: rgba(0,0,0,0.95);
+
+            backdrop-filter: blur(10px);
+
+            z-index: 999;
+
         }
 
-        nav a {
+        /* MENU ESTILO BRAIN DEAD */
+
+        nav {
+
+            display: flex;
+            gap: 18px;
+
+        }
+
+        .menu-btn {
+
             color: white;
             text-decoration: none;
-            margin-right: 30px;
-            font-size: 18px;
-            transition: 0.3s;
+
+            padding: 12px 20px;
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            background: rgba(255,255,255,0.04);
+
+            backdrop-filter: blur(10px);
+
+            border-radius: 40px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            transition: 0.35s;
+
+            position: relative;
+
+            overflow: hidden;
+
         }
 
-        nav a:hover {
-            color: #aaa;
+        .menu-btn:hover {
+
+            background: white;
+            color: black;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 0 20px rgba(255,255,255,0.2);
+
         }
 
-        /* ESTILIZAÇÃO DA IMAGEM */
-        .container {
+        /* IMAGEM CENTRAL */
+
+        .top-image {
+
+            position: absolute;
+
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
+
+        .top-image img {
+
+            width: 120px;
+            height: 120px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+
+        }
+
+        /* RELÓGIO E DATA */
+
+        .tempo {
+
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 40px;
+            justify-content: center;
+
+            background: rgba(255,255,255,0.05);
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            backdrop-filter: blur(10px);
+
+            padding: 14px 22px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 0 20px rgba(255,255,255,0.05),
+                inset 0 0 10px rgba(255,255,255,0.03);
+
+            min-width: 180px;
+
         }
 
-        .image-box {
-            width: 400px;
-            height: 400px;
+        #relogio {
+
+            font-size: 30px;
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            color: white;
+
+            text-shadow:
+                0 0 5px rgba(255,255,255,0.6),
+                0 0 15px rgba(255,255,255,0.3);
+
+        }
+
+        #data {
+
+            font-size: 13px;
+
+            margin-top: 8px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: rgba(255,255,255,0.75);
+
+        }
+
+        /* CONTAINER */
+
+        .container {
+
             display: flex;
             justify-content: center;
             align-items: center;
-        }
 
-        .image-box img {
-            max-width: 100%;
-            max-height: 100%;
-        }
+            padding-top: 80px;
 
-        /* RELÓGIO NEON */
-        #relogio {
-            margin-top: 20px;
-            font-size: 32px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            color: #00ffff;
-
-            text-shadow:
-                0 0 5px #00ffff,
-                0 0 10px #00ffff,
-                0 0 20px #00ffff,
-                0 0 40px #00ffff;
-        }
-
-        /* DATA */
-        #data {
-            font-size: 18px;
-            margin-left: 15px;
-            color: #ff00ff;
-
-            text-shadow:
-                0 0 5px #ff00ff,
-                0 0 10px #ff00ff,
-                0 0 20px #ff00ff;
-        }
-
-        .tempo {
-            display: flex;
         }
 
         /* SEÇÕES */
+
         section {
+
             height: 100vh;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             font-size: 32px;
+
             border-top: 1px solid #222;
+
+            text-transform: uppercase;
+
+            letter-spacing: 4px;
+
         }
+
+        /* FOOTER */
+
+        footer {
+
+            width: 100%;
+
+            padding: 60px 20px;
+
+            background: black;
+
+            text-align: center;
+
+        }
+
+        .footer-line {
+
+            width: 100%;
+            height: 1px;
+
+            background: rgba(255,255,255,0.12);
+
+            margin-bottom: 25px;
+
+        }
+
+        .footer-content {
+
+            color: rgba(255,255,255,0.55);
+
+            font-size: 14px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            line-height: 200%;
+
+        }
+
+        .footer-content span {
+
+            color: white;
+
+            font-weight: bold;
+
+        }
+
     </style>
 </head>
 
 <body>
 
 <header>
-    <nav>
-        <a href="#novidades">Novidades</a>
-        <a href="#shop">Shop</a>
-    </nav>
-</header>
 
-<!-- TOPO -->
-<div class="container">
-    <div class="image-box">
-        <img src="farol_velho.jpg" alt="Sua imagem aqui">
+    <!-- MENU -->
+
+    <nav>
+
+        <a href="#novidades" class="menu-btn">
+            Novidades
+        </a>
+
+        <a href="#shop" class="menu-btn">
+            Shop
+        </a>
+
+    </nav>
+
+    <!-- IMAGEM CENTRAL -->
+
+    <div class="top-image">
+
+        <img src="farol_velho.jpg" alt="Imagem">
+
     </div>
+
+    <!-- DATA E HORA -->
 
     <div class="tempo">
-        <div id="relogio">--:--:--</div>
-        <div id="data">--/--/----</div>
+
+        <div id="relogio">
+            --:--:--
+        </div>
+
+        <div id="data">
+            --/--/----
+        </div>
+
     </div>
+
+</header>
+
+<!-- CONTEÚDO -->
+
+<div class="container">
 </div>
 
 <!-- SEÇÕES -->
-<section id="novidades">Novidades</section>
-<section id="shop">Shop</section>
+
+<section id="novidades">
+    Novidades
+</section>
+
+<section id="shop">
+    Shop
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-line"></div>
+
+    <div class="footer-content">
+
+        © 2026 Todos os direitos reservados.
+
+        <span>
+            Vinícius Martins
+        </span>
+
+        •
+
+        <span>
+            LukeDevFull
+        </span>
+
+        •
+
+        <span>
+            Amon
+        </span>
+
+    </div>
+
+</footer>
 
 <script>
+
 function atualizarTempo() {
+
     const agora = new Date();
 
     const opcoesHora = {
+
         timeZone: "America/Sao_Paulo",
+
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit"
+
     };
 
     const opcoesData = {
+
         timeZone: "America/Sao_Paulo",
+
         day: "2-digit",
         month: "2-digit",
         year: "numeric"
+
     };
 
     document.getElementById("relogio").textContent =
+
         agora.toLocaleTimeString("pt-BR", opcoesHora);
 
     document.getElementById("data").textContent =
+
         agora.toLocaleDateString("pt-BR", opcoesData);
+
 }
 
 atualizarTempo();
+
 setInterval(atualizarTempo, 1000);
+
 </script>
 
 </body>
